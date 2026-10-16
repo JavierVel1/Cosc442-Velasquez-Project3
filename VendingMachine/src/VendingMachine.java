@@ -152,9 +152,6 @@ public class VendingMachine {
 		return item;
 	}
 
-	// INJECTED FAULT FOR COVERAGE EXPERIMENT
-
-
 	/**
 	 * Function to put money into the vending machine.
 	 * Precondition: amount >= 0
@@ -165,7 +162,7 @@ public class VendingMachine {
 	 *                                 amount is < 0
 	 */
 	public void insertMoney(double amount) throws VendingMachineException {
-		if (amount >= 0)
+		if (amount < 0)
 			throw new VendingMachineException(VendingMachine.INVALID_AMOUNT_MESSAGE);
 		this.balance += amount;
 	}

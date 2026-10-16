@@ -20,7 +20,7 @@ The individual Boolean conditions that make up the decision:
 (item != null)  and (this.balance >= item.getPrice())
 
 The test that evaluate those condition to true and false is testMakePurchaseValidCase() and testMakePurchaseInvalidCase()
-this is because i made sure that those tests cover those condition. 
+i made sure that those tests cover those condition because i wanted to be thorough. 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
