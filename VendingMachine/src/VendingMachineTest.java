@@ -60,7 +60,7 @@ public class VendingMachineTest {
         assertThrows(VendingMachineException.class, () -> vend.insertMoney(amount));
     }
 
-        @ParameterizedTest
+    @ParameterizedTest
     @ValueSource(doubles = {1, 0.5, 0.001, 0, -0.001, -0.5, -1})
     void testInsertMoneyBoundaryCase(double amount) {
         // Arrange
@@ -93,14 +93,17 @@ public class VendingMachineTest {
         VendingMachineItem item = new VendingMachineItem("Chips", 4); 
         VendingMachineItem item2 = new VendingMachineItem("Cookie", 3); 
         VendingMachineItem item3 = new VendingMachineItem("Pizza", 11); 
+        VendingMachineItem item4 = new VendingMachineItem(null, 0);  
+        item4 = null;
         //Act
         vend.addItem(item, "A");
         vend.addItem(item2, "B");
         vend.addItem(item3, "C");
+        vend.addItem(item4, "D");
         vend.insertMoney(10.0);
         //Assert
         assertFalse(vend.makePurchase("C"));
-        assertFalse(vend.makePurchase("D"));
+        assertThrows(VendingMachineException.class, () -> vend.makePurchase("D"));
     }
 
 
@@ -159,5 +162,22 @@ public class VendingMachineTest {
         //assert
         assertThrows(VendingMachineException.class, () ->  vend.getItem("Chip"));
         assertThrows(VendingMachineException.class, () ->  vend.getItem("A")); 
+    }
+
+    @Test
+    void testReturnChange(){
+        //Arrange 
+        VendingMachine vend = new VendingMachine();
+        //act
+        vend.insertMoney(100.0);
+        //assert
+        assertEquals(100, vend.returnChange(), 0.0001);
+    }
+
+    @Test
+    void testVendingMachineException()
+    {
+        //Arrange
+        assertThrows(VendingMachineException.class, () -> new VendingMachineItem("Chips", -1)); 
     }
 }
