@@ -17,7 +17,7 @@ import org.junit.jupiter.params.provider.ValueSource;
  * getItem returns the item in a slot, and removeItem throws if a slot is empty.
  * Exception message text is not specified, so only exception types are checked.
  */
-public class VendingMachineTest {
+public class VendingMachineTest2 {
 
 	private static final double DELTA = 1e-9;
 
@@ -277,19 +277,17 @@ public class VendingMachineTest {
 	 */
 	@ParameterizedTest(name = "slot {0}")
 	@ValueSource(strings = { "A", "B", "C", "D" })
-	@DisplayName("Purchase from an empty slot returns false (per Javadoc)")
-	void makePurchase_emptySlot_returnsFalse(String code) {
-		// Arrange
-		VendingMachine machine = new VendingMachine();
-		machine.insertMoney(5.00);
+	@DisplayName("Purchase from an empty slot throws (current behavior)")
+	void makePurchase_emptySlot_throws(String code) {
+	// Arrange
+	VendingMachine machine = new VendingMachine();
+	machine.insertMoney(5.00);
+	Executable act = () -> machine.makePurchase(code);
 
-		// Act
-		//boolean purchased = machine.makePurchase(code);
-
-		// Assert
-		//assertFalse(purchased);
-		//assertEquals(5.00, machine.getBalance(), DELTA);
-	}
+	// Act & Assert
+	assertThrows(VendingMachineException.class, act);
+	assertEquals(5.00, machine.getBalance(), DELTA);
+	}	
 
 	// --------------------------------------------------------------- returnChange
 
