@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
  * precondition price >= 0; postcondition name/price are set to the arguments;
  * a VendingMachineException is thrown if price < 0.
  */
-public class VendingMachineItemTest {
+class VendingMachineItemTest1 {
 
 	private static final double DELTA = 1e-9;
 

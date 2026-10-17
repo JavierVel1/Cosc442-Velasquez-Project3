@@ -1,4 +1,4 @@
-Link: https://claude.ai/share/f143206c-e4bf-4977-9eb4-14982a702599 
+Link to the prompt: https://claude.ai/share/f143206c-e4bf-4977-9eb4-14982a702599 
 
 
 
@@ -6,7 +6,7 @@ Manual suite from Task 1:
 Approx. # Tests: 13
 Statement/Line Coverage: 100%
 Branch Coverage: 95.45%
-Notable Strength: It followed Arrange → Act → Assert and its easy to follow.
+Notable Strength: It followed Arrange → Act → Assert and its easy to follow. 
 Notable weakness: it didnt achieve 100% branch coverage
 
 Initial AI-generated suite:
@@ -14,7 +14,7 @@ Approx. # Tests: 35
 Statement/Line Coverage: 100%
 Branch Coverage: 95.45%
 Notable Strength: I believe that it does test every single possible thing it could. It had meaningful assertions.
-Notable weakness: It doesnt follow the Arrange → Act → Assert and it didnt achieve 100% branch coverage
+Notable weakness: It doesnt follow the Arrange → Act → Assert and it didnt achieve 100% branch coverage. 
 
 AI suite after coverage-guided prompt
 Approx. # Tests: 20
